@@ -63,27 +63,13 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         ease-in-out`
     )
 
-    const menuOpenClass2 = (`
-        transition-transform
-        duration-800 
-        ease-in-out`
-    )
-
-    const menuCloseClass2 = (`
-        hidden
-        translate-y-[-450px] 
-        transition-transform 
-        duration-800 
-        ease-in-out`
-    )
-
     const renderSubMenuItems = (menuItem, matchLabel, subMenuItems) => {
         if (menuItem === matchLabel) {
             return (
                 <ul 
                     //
                     className={`
-                    ${openSubMenu === menuItem ? menuOpenClass2 : menuCloseClass2} 
+                    ${openSubMenu === menuItem ? 'diisplay' : 'hidden'} 
                     w-fit 
                     px-10` 
                     }
@@ -157,7 +143,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
             >
                 <button 
                     className={
-                        `ext-3xl
+                        `text-3xl
                         absolute
                         right-10
                         top-9
