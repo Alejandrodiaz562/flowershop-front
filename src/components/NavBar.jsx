@@ -21,7 +21,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     const navClass = (`
         bg-myblack 
         w-screen
-        h-[10vh]
+        h-[12vh]
         flex 
         items-center
         justify-center 
@@ -120,7 +120,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
             >
                 <h1 className={`
                         font-satisfy 
-                        text-4xl 
+                        text-3xl
                         font-bold 
                         text-mygold`
                     }
@@ -130,7 +130,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                 <span 
                     className={`
                         font-amatic
-                        text-2xl 
+                        text-xl 
                         text-white 
                         tracking-widest`
                     }
@@ -157,16 +157,11 @@ const NavBar = ({items, occasions, categories, flowers}) => {
             >
                 <button 
                     className={
-                        `${isOpen 
-                            ? (`
-                                text-4xl
-                                absolute
-                                right-10
-                                top-9
-                                text-white  
-                                `) 
-                            : 'hidden'
-                        }`
+                        `ext-3xl
+                        absolute
+                        right-10
+                        top-9
+                        text-white`
                     }
                     onClick={toggleMenu}      
                 >
@@ -180,7 +175,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                             className={`
                                 my-4
                                 ml-7
-                                text-4xl
+                                text-3xl
                                 font-satisfy`
                             }
                         >
