@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-satisfy  :'Satisfy', 'cursive';
+    --font-amatic  :'Amatic SC', 'sans-serif';
+    --color-myblack: #202221;
+    --color-mygold: #B68B4B;
+    
+
+  }
+
