@@ -21,10 +21,10 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     const navClass = (`
         bg-myblack 
         w-full
-        h-[12vh]
+        h-[15vh]
         flex 
         items-center
-        justify-center 
+        justify-center sm:justify-evenly
         sticky 
         top-0 
         z-[50]`
@@ -51,9 +51,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         fixed sm:static
         top-0
 
-        pt-25 sm:pt-0
-        sm: border border-white
-        `
+        pt-25 sm:pt-0`
     )
 
     const menuOpenClass = (`
@@ -63,7 +61,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     )
 
     const menuCloseClass = (`
-        translate-x-[450px] 
+        translate-x-full sm:translate-x-0
         transition-transform 
         duration-800 
         ease-in-out`
@@ -75,16 +73,24 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                 <ul 
                     //
                     className={`
-                    ${openSubMenu === menuItem ? 'diisplay' : 'hidden'} 
+                    ${openSubMenu === menuItem ? 'grid' : 'hidden'} 
                     w-fit 
-                    px-10` 
+                    pl-10
+
+                    sm:absolute
+                    sm:mt-10
+                    sm:grid-cols-2
+                    sm:gap-x-5
+                    sm:gap-y-3
+                    sm:p-5
+                    sm:bg-myblack` 
                     }
                 >
                 {subMenuItems.map((item)=> (
                     <li 
                         key={item} 
                         className={`
-                            w-full 
+                            w-full
                             h-full 
                             py-1`
                         }
@@ -104,7 +110,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     return ( 
         <nav 
             className={navClass}
-        >
+        >   
             <div 
                 className={`
                     text-center`
@@ -168,7 +174,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                             className={`
                                 my-4
                                 ml-7
-                                text-3xl
+                                text-3xl sm:text-2xl
                                 font-satisfy`
                             }
                         >
@@ -184,8 +190,8 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                             >
                                 {el.toUpperCase()}
                                 {openSubMenu === el  //
-                                    ? <HiChevronUp/> 
-                                    : <HiChevronDown/>
+                                    ? <HiChevronUp className="text-xl"/> 
+                                    : <HiChevronDown className="text-xl"/>
                                 }
                             </button>
                         {
