@@ -21,10 +21,10 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     const navClass = (`
         bg-myblack 
         w-full
-        h-[15vh]
+        h-20 sm:h-25
         flex 
         items-center
-        justify-center sm:justify-between
+        justify-center
         sticky 
         top-0 
         z-[50]`
@@ -32,8 +32,6 @@ const NavBar = ({items, occasions, categories, flowers}) => {
 
     const hamburguerButtonClass = (`
         sm:hidden 
-        relative
-        left-20
         text-3xl 
         text-white`
     )
@@ -41,17 +39,14 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     const menuClass = (`
         bg-myblack
         text-mygold
-        w-full sm:w-[55%]
-
-        h-screen sm:h-[12vh]
-
+        w-full sm:w-130
+        h-screen sm:h-full
+        p-10 sm:p-0
         flex
         flex-col sm:flex-row
-
+        sm:justify-between
         fixed sm:static
-        top-0
-
-        pt-25 sm:pt-0`
+        top-0`
     )
 
     const menuOpenClass = (`
@@ -74,15 +69,13 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                     //
                     className={`
                     ${openSubMenu === menuItem ? 'grid' : 'hidden'}
-                    
-                    w-fit
                     pl-10
-                    
+                    mt-10 sm:m-0
                     sm:absolute
-                    sm:mt-10
+                    sm:top-30
                     sm:grid-cols-2
                     sm:gap-x-2
-                    
+                    sm:gap-y-2
                     sm:p-5
                     sm:bg-myblack` 
                     }
@@ -91,9 +84,10 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                     <li 
                         key={item} 
                         className={`
-                            w-fit
+                            
                             h-full 
-                            py-1 sm:p-2`
+                            py-1 sm:p-2
+                            mb-2 sm:m-0`
                         }
                     >
                         <Link
@@ -112,40 +106,51 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         <nav 
             className={navClass}
         >   
-            <div 
-                className={`
-                    text-center
-                    sm:relative 
-                    sm:left-50`
+            <div className={`
+                    flex-1
+                    max-w-[80%] sm:max-w-[30%]
+                    h-full
+                    flex flex-row
+                    items-center
+                    justify-between sm:justify-center`
                 }
             >
-                <h1 className={`
-                        font-satisfy 
-                        text-3xl
-                        font-bold 
-                        text-mygold`
-                    }
-                >
-                  SAN JUDAS
-                </h1>
-                <span 
+                <div 
                     className={`
-                        font-amatic
-                        text-xl 
-                        text-white 
-                        tracking-widest`
+                        flex flex-col
+                        items-center
+                        justify-center
+                        h-full
+                        px-4`
                     }
                 >
-                  FLORISTERIA
-                </span>
-            </div>
+                    <h1 className={`
+                            font-satisfy 
+                            text-2xl
+                            font-bold 
+                            text-mygold`
+                        }
+                    >
+                      SAN JUDAS
+                    </h1>
+                    <span 
+                        className={`
+                            font-amatic
+                            text-xl
+                            text-white 
+                            tracking-widest`
+                        }
+                    >
+                      FLORISTERIA
+                    </span>
+                </div>
 
-            <button 
-                className={hamburguerButtonClass}
-                onClick={toggleMenu}
-            >
-                <HamburgerButton/>
-            </button>
+                <HamburgerButton 
+                    className={hamburguerButtonClass}
+                    onClick={toggleMenu}
+                >
+                </HamburgerButton>
+            </div>
 
             <ul 
                 className={`
@@ -156,27 +161,25 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                     }`
                 }
             >
-                <button 
-                    className={`
-                        text-3xl
-                        absolute
-                        right-10
-                        top-9
-                        text-white
-                        sm:hidden`
+                
+                <XButton className={`
+                    text-3xl
+                    absolute
+                    right-10
+                    top-10
+                    text-white
+                    sm:hidden`
                     }
-                    onClick={toggleMenu}      
-                >
-                    <XButton/>
-                </button>
-
+                    onClick={toggleMenu}
+                />
                 {
                     items.map((el) => (
                         <li 
                             key={el} 
                             className={`
-                                my-4
-                                ml-7
+                                sm:flex
+                                sm:items-center
+                                my-10 sm:m-0
                                 text-3xl sm:text-2xl
                                 font-satisfy`
                             }
@@ -187,7 +190,6 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                                     flex
                                     items-center 
                                     gap-3
-                                    mb-4
                                     w-fit`
                                 }
                             >
