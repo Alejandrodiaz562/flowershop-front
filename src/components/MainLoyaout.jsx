@@ -6,7 +6,7 @@ const MainLayout = () => {
 
     const items = ['ocasiones', 'categorias', 'flores']
 
-    const occasions = ['amor', 'cumpleaños', 'aniversarios', 'nacimiento', 'condolencias', 'mejorate Pronto', 'grados', 'primera comunion', 'matrimonio']
+    const occasions = ['amor', 'cumpleaños', 'aniversario', 'nacimiento', 'condolencias', 'grados', 'primera comunion', 'matrimonio']
 
     const categories = ['ramilletes', 'ramos', 'cajas', 'anchetas']
 

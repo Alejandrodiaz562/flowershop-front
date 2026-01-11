@@ -24,7 +24,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         h-[15vh]
         flex 
         items-center
-        justify-center sm:justify-evenly
+        justify-center sm:justify-between
         sticky 
         top-0 
         z-[50]`
@@ -41,7 +41,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     const menuClass = (`
         bg-myblack
         text-mygold
-        w-full sm:w-fit
+        w-full sm:w-[55%]
 
         h-screen sm:h-[12vh]
 
@@ -73,15 +73,16 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                 <ul 
                     //
                     className={`
-                    ${openSubMenu === menuItem ? 'grid' : 'hidden'} 
-                    w-fit 
+                    ${openSubMenu === menuItem ? 'grid' : 'hidden'}
+                    
+                    w-fit
                     pl-10
-
+                    
                     sm:absolute
                     sm:mt-10
                     sm:grid-cols-2
-                    sm:gap-x-5
-                    sm:gap-y-3
+                    sm:gap-x-2
+                    
                     sm:p-5
                     sm:bg-myblack` 
                     }
@@ -90,9 +91,9 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                     <li 
                         key={item} 
                         className={`
-                            w-full
+                            w-fit
                             h-full 
-                            py-1`
+                            py-1 sm:p-2`
                         }
                     >
                         <Link
@@ -113,7 +114,9 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         >   
             <div 
                 className={`
-                    text-center`
+                    text-center
+                    sm:relative 
+                    sm:left-50`
                 }
             >
                 <h1 className={`
