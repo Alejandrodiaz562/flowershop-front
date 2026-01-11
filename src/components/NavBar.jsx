@@ -20,7 +20,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
 
     const navClass = (`
         bg-myblack 
-        w-screen
+        w-full
         h-[12vh]
         flex 
         items-center
@@ -41,13 +41,19 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     const menuClass = (`
         bg-myblack
         text-mygold
-        w-screen
-        h-screen
+        w-full sm:w-fit
+
+        h-screen sm:h-[12vh]
+
         flex
-        flex-col
-        fixed
+        flex-col sm:flex-row
+
+        fixed sm:static
         top-0
-        pt-25`
+
+        pt-25 sm:pt-0
+        sm: border border-white
+        `
     )
 
     const menuOpenClass = (`
@@ -142,12 +148,13 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                 }
             >
                 <button 
-                    className={
-                        `text-3xl
+                    className={`
+                        text-3xl
                         absolute
                         right-10
                         top-9
-                        text-white`
+                        text-white
+                        sm:hidden`
                     }
                     onClick={toggleMenu}      
                 >
