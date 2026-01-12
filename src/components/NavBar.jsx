@@ -69,23 +69,23 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                     //
                     className={`
                     ${openSubMenu === menuItem ? 'grid' : 'hidden'}
-                    pl-10
+                    pl-10 sm:p-5
                     mt-10 sm:m-0
                     sm:absolute
                     sm:top-30
                     sm:grid-cols-2
                     sm:gap-x-2
                     sm:gap-y-2
-                    sm:p-5
+                    sm:min-w-70
                     sm:bg-myblack` 
                     }
                 >
                 {subMenuItems.map((item)=> (
                     <li 
                         key={item} 
-                        className={`
-                            
+                        className={` 
                             h-full 
+                            sm:w-full
                             py-1 sm:p-2
                             mb-2 sm:m-0`
                         }
@@ -180,8 +180,9 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                                 sm:flex
                                 sm:items-center
                                 my-10 sm:m-0
-                                text-3xl sm:text-2xl
-                                font-satisfy`
+                                text-5xl sm:text-4xl
+                                font-bold
+                                font-amatic`
                             }
                         >
                             <button 
