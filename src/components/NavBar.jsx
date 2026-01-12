@@ -24,7 +24,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         h-20 sm:h-25
         flex 
         items-center
-        justify-center
+        justify-center 
         sticky 
         top-0 
         z-[50]`
@@ -112,7 +112,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                     h-full
                     flex flex-row
                     items-center
-                    justify-between sm:justify-center`
+                    justify-between sm:justify-start`
                 }
             >
                 <div 
