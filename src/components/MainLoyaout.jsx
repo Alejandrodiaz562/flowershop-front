@@ -4,18 +4,17 @@ import Footer from './Footer'
 
 const MainLayout = () => {
 
-    const items = ['ocasiones', 'categorias', 'flores']
+    const items1 = ['ocasiones', 'categorias']
 
-    const occasions = ['amor', 'cumpleaños', 'aniversario', 'nacimiento', 'condolencias', 'grados', 'primera comunion', 'matrimonio']
+    const items2 = ['condolencias', 'rosas', 'girasoles']
+
+    const occasions = ['amor', 'cumpleaños', 'aniversario', 'nacimiento', 'grados', 'primera comunion', 'matrimonio']
 
     const categories = ['ramilletes', 'ramos', 'cajas', 'anchetas']
-
-    const flowers = ['rosas', 'girasoles', 'claveles', 'lirios']
-    
   
     return ( 
         <div>
-            <NavBar items={items} occasions={occasions} categories={categories} flowers={flowers}></NavBar>
+            <NavBar items1={items1} items2={items2} occasions={occasions} categories={categories}></NavBar>
             <div>
                 <Outlet/>
             </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars as HamburgerButton, FaTimes as XButton } from "react-icons/fa";
 import { HiChevronDown, HiChevronUp  } from "react-icons/hi2";
 
-const NavBar = ({items, occasions, categories, flowers}) => {
+const NavBar = ({items1, items2, occasions, categories}) => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [openSubMenu, setOpenSubMenu] = useState(null)
@@ -12,7 +12,9 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         setIsOpen(!isOpen)
     }
 
-    // 
+    // SI EL ITEM ACTUAL ES IGUAL AL NUEVO ITEM, OPENSUBMENU SIGUE 
+    // SIENDO NULL, SINO SI DETECTA UN NUEVO ITEM DIFERENTE AL ACTUAL 
+    // PASA A VALER ESE NUEVO ITEM
     const toggleSubMenu =(menuName) => {
         setOpenSubMenu(prev => prev === menuName ? null : menuName  )
         
@@ -26,7 +28,8 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         items-center
         justify-center 
         sticky 
-        top-0 
+        top-0
+        border-2 border-red-700
         z-[50]`
     )
 
@@ -37,16 +40,26 @@ const NavBar = ({items, occasions, categories, flowers}) => {
     )
 
     const menuClass = (`
-        bg-myblack
+        bg-myblack 
         text-mygold
-        w-full sm:w-130
-        h-screen sm:h-full
-        p-10 sm:p-0
-        flex
-        flex-col sm:flex-row
-        sm:justify-between
+        h-full w-full sm:w-[70%]
+        px-10 pt-20 pb-10 sm:p-0
+        flex flex-col sm:flex-row
+        sm: gap-x-4
+        sm:justify-center
         fixed sm:static
-        top-0`
+        border-2 border-yellow-300
+        top-0
+        overflow-scroll sm:overflow-hidden`
+    )
+
+    const menuItemsClass = (`
+        sm:flex
+        sm:items-center
+        mb-10 sm:m-0
+        text-3xl sm:text-xl
+        border-5 border-white
+        font-playfair-display`
     )
 
     const menuOpenClass = (`
@@ -62,84 +75,84 @@ const NavBar = ({items, occasions, categories, flowers}) => {
         ease-in-out`
     )
 
-    const renderSubMenuItems = (menuItem, matchLabel, subMenuItems) => {
-        if (menuItem === matchLabel) {
-            return (
-                <ul 
-                    //
-                    className={`
-                    ${openSubMenu === menuItem ? 'grid' : 'hidden'}
-                    pl-10 sm:p-5
-                    mt-10 sm:m-0
-                    sm:absolute
-                    sm:top-30
-                    sm:grid-cols-2
-                    sm:gap-x-2
-                    sm:gap-y-2
-                    sm:min-w-70
-                    sm:bg-myblack` 
-                    }
-                >
-                {subMenuItems.map((item)=> (
-                    <li 
-                        key={item} 
-                        className={` 
-                            h-full 
-                            sm:w-full
-                            py-1 sm:p-2
-                            mb-2 sm:m-0`
-                        }
-                    >
-                        <Link
-                            to={`/${menuItem}/${item}`}
-                        >
-                            {item.toUpperCase()}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-            )
-        }
-    }
+    const subMenuClass = (`
+        sm:grid
+        pl-10 sm:p-5
+        sm:absolute
+        sm:top-30
+        sm:grid-cols-2
+        sm:gap-x-2
+        sm:gap-y-2
+        sm:min-w-70
+        border-2 border-blue-500
+        sm:bg-myblack`
+    )
+
+    const subMenuItemsClass = (`
+        h-full w-full
+        py-2
+        border-2 border-green-500
+        `
+    )
+
+    const iconoContainerClass = (`
+        w-[80%] sm:w-[20%]
+        h-full
+        flex flex-row
+        items-center
+        border-2 border-pink-500
+        justify-between sm:justify-center`
+    )
+
+    const iconoContainerClass2 = (`
+        flex flex-col
+        items-center
+        justify-center
+        h-full
+        border-2 border-purple-500
+        px-4`
+    )
+
+    const sanJudasClass = (`
+        font-satisfy 
+        text-xl sm:text-2xl
+        font-bold 
+        text-mygold`
+    )
+
+    const floristeriaClass = (`
+        font-amatic
+        sm:text-xl
+        text-white 
+        tracking-widest`
+    )
+
+    const xBbuttonClass = (`
+        text-3xl
+        absolute
+        right-10
+        top-10
+        text-white
+        sm:hidden`
+    )
+
+    
 
     return ( 
         <nav 
             className={navClass}
         >   
-            <div className={`
-                    flex-1
-                    max-w-[80%] sm:max-w-[30%]
-                    h-full
-                    flex flex-row
-                    items-center
-                    justify-between sm:justify-start`
-                }
+            <div className={iconoContainerClass}
             >
                 <div 
-                    className={`
-                        flex flex-col
-                        items-center
-                        justify-center
-                        h-full
-                        px-4`
-                    }
+                    className={iconoContainerClass2}
                 >
-                    <h1 className={`
-                            font-satisfy 
-                            text-2xl
-                            font-bold 
-                            text-mygold`
-                        }
+                    <h1 className={sanJudasClass}
                     >
                       SAN JUDAS
                     </h1>
                     <span 
-                        className={`
-                            font-amatic
-                            text-xl
-                            text-white 
-                            tracking-widest`
-                        }
+                        className={floristeriaClass}
                     >
                       FLORISTERIA
                     </span>
@@ -151,7 +164,7 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                 >
                 </HamburgerButton>
             </div>
-
+                                    
             <ul 
                 className={`
                     ${menuClass}
@@ -162,66 +175,61 @@ const NavBar = ({items, occasions, categories, flowers}) => {
                 }
             >
                 
-                <XButton className={`
-                    text-3xl
-                    absolute
-                    right-10
-                    top-10
-                    text-white
-                    sm:hidden`
-                    }
+                <XButton className={xBbuttonClass}
                     onClick={toggleMenu}
                 />
+
                 {
-                    items.map((el) => (
+                    items1.map((el) => (
                         <li 
                             key={el} 
-                            className={`
-                                sm:flex
-                                sm:items-center
-                                my-10 sm:m-0
-                                text-5xl sm:text-4xl
-                                font-bold
-                                font-amatic`
-                            }
+                            className={menuItemsClass}
                         >
                             <button 
                                 onClick={() => toggleSubMenu(el)} 
                                 className={`
+                                    w-full
+                                    p-2
                                     flex
                                     items-center 
-                                    gap-3
-                                    w-fit`
+                                    gap-2
+                                    border-2 border-purple-700
+                                    `
                                 }
                             >
                                 {el.toUpperCase()}
                                 {openSubMenu === el  //
-                                    ? <HiChevronUp className="text-xl"/> 
-                                    : <HiChevronDown className="text-xl"/>
+                                    ? <HiChevronUp className="border border-red-500"/> 
+                                    : <HiChevronDown className="border border-blue-500"/>
                                 }
                             </button>
-                        {
-                            renderSubMenuItems(
-                                el, 
-                                'ocasiones', 
-                                occasions
-                            )
-                            
-                        }
-                        {
-                            renderSubMenuItems(
-                                el, 
-                                'categorias', 
-                                categories
-                            )
-                        }
-                        {
-                            renderSubMenuItems(
-                                el, 
-                                'flores', 
-                                flowers
-                            )
-                        }
+                        
+                        
+                        </li>
+                    ))
+                }
+                {
+                    items2.map((el) => (
+                        <li 
+                            key={el} 
+                            className={menuItemsClass}
+                        >
+                            <Link 
+                                to={`/${el}`}
+                                className={`
+                                    w-full
+                                    p-2
+                                    flex
+                                    items-center 
+                                    border-2 border-purple-700
+                                    `
+                                }
+                            >
+                                {el.toUpperCase()}
+                                
+                            </Link>
+                        
+                        
                         </li>
                     ))
                 }
