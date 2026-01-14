@@ -44,7 +44,7 @@ const NavBar = ({items1, items2, occasions, categories}) => {
 
     const navClass = (`
         w-full
-        h-20 sm:h-25
+        h-20 lg:h-25
         flex 
         items-center
         justify-center 
@@ -57,28 +57,28 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     const hamburguerButtonClass = (` 
         text-3xl 
         text-white
-        sm:hidden`
+        lg:hidden`
     )
 
     const menuClass = (`
-        h-full sm:h-auto w-full sm:w-[70%]
-        px-10 pt-20 pb-10 sm:p-0
-        flex flex-col sm:flex-row
-        sm: gap-x-4
-        sm:justify-center
-        fixed sm:static 
+        h-full lg:h-auto w-full lg:w-[70%]
+        px-10 pt-20 pb-10 lg:p-0
+        flex flex-col lg:flex-row
+        lg: gap-x-4
+        lg:justify-center
+        fixed lg:static 
         top-0
-        overflow-auto sm:overflow-visible
+        overflow-auto lg:overflow-visible
         bg-myblack 
         text-mygold`
     )
 
     const menuItemsClass = (`
-        mb-10 sm:m-0
-        text-3xl sm:text-xl
+        mb-10 lg:m-0
+        text-3xl lg:text-xl
         font-playfair-display
-        sm:flex
-        sm:items-center`
+        lg:flex
+        lg:items-center`
     )
 
     const menuOpenClass = (`
@@ -88,36 +88,36 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     )
 
     const menuCloseClass = (`
-        translate-x-full sm:translate-x-0
+        translate-x-full lg:translate-x-0
         transition-transform 
         duration-800 
         ease-in-out`
     )
 
     const subMenuClass = (`
-        pl-10 sm:p-5
-        sm:absolute
-        sm:top-20
-        sm:grid
-        sm:grid-cols-2
-        sm:gap-x-2
-        sm:gap-y-2
-        sm:min-w-70
-        sm:bg-myblack`
+        pl-10 lg:p-5
+        lg:absolute
+        lg:top-20
+        lg:grid
+        lg:grid-cols-2
+        lg:gap-x-2
+        lg:gap-y-2
+        lg:min-w-70
+        lg:bg-myblack`
     )
 
     const subMenuItemsClass = (`
         h-full w-full
-        py-2 sm:px-2
-        sm:text-center`
+        py-2 lg:px-2
+        lg:text-center`
     )
 
     const iconoContainerClass = (`
-        w-[80%] sm:w-[20%]
+        w-[80%] lg:w-[20%]
         h-full
         flex flex-row
         items-center
-        justify-between sm:justify-center`
+        justify-between lg:justify-center`
     )
 
     const iconoContainerClass2 = (`
@@ -130,14 +130,14 @@ const NavBar = ({items1, items2, occasions, categories}) => {
 
     const sanJudasClass = (`
         font-satisfy 
-        text-xl sm:text-2xl
+        text-xl lg:text-2xl
         font-bold 
         text-mygold`
     )
 
     const floristeriaClass = (`
         font-amatic
-        sm:text-xl
+        lg:text-xl
         text-white 
         tracking-widest`
     )
@@ -148,11 +148,11 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         right-10
         top-10
         text-white
-        sm:hidden`
+        lg:hidden`
     )
 
     const itemMenuBtnClass = (` 
-        w-full
+        w-fit
         p-2
         flex
         items-center 
@@ -165,7 +165,7 @@ const NavBar = ({items1, items2, occasions, categories}) => {
 
             <div className={iconoContainerClass}>
 
-                <div className={iconoContainerClass2}>
+                <Link className={iconoContainerClass2} to={'/'}>
 
                     <h1 className={sanJudasClass}>
                       SAN JUDAS
@@ -175,7 +175,7 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                       FLORISTERIA
                     </span>
 
-                </div>
+                </Link>
 
                 <HamburgerButton 
                     className={hamburguerButtonClass}
