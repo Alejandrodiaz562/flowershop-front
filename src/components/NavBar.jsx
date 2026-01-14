@@ -16,8 +16,30 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     // SIENDO NULL, SINO SI DETECTA UN NUEVO ITEM DIFERENTE AL ACTUAL 
     // PASA A VALER ESE NUEVO ITEM
     const toggleSubMenu =(menuName) => {
-        setOpenSubMenu(prev => prev === menuName ? null : menuName  )
-        
+        setOpenSubMenu(prev => prev === menuName ? null : menuName  ) 
+    }
+
+    const renderSubMenuItems = (menuItem, matchLabel, subMenuItems) => {
+        if (menuItem === matchLabel) {
+            return (
+                <ul
+                    className={`
+                        ${openSubMenu === matchLabel ? subMenuClass : 'hidden'}
+                    `}
+                >
+                    {subMenuItems.map((item)=> (
+                        <li
+                            key={item}
+                            className={subMenuItemsClass}
+                        >
+                            <Link to={`/${menuItem}/${item}`}>
+                                {item.toUpperCase()}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            )
+        }
     }
 
     const navClass = (`
@@ -29,7 +51,6 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         justify-center 
         sticky 
         top-0
-        border-2 border-red-700
         z-[50]`
     )
 
@@ -42,15 +63,14 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     const menuClass = (`
         bg-myblack 
         text-mygold
-        h-full w-full sm:w-[70%]
+        h-full sm:h-auto w-full sm:w-[70%]
+        overflow-auto sm:overflow-visible
         px-10 pt-20 pb-10 sm:p-0
         flex flex-col sm:flex-row
         sm: gap-x-4
         sm:justify-center
-        fixed sm:static
-        border-2 border-yellow-300
-        top-0
-        overflow-scroll sm:overflow-hidden`
+        fixed sm:static 
+        top-0`
     )
 
     const menuItemsClass = (`
@@ -58,7 +78,6 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         sm:items-center
         mb-10 sm:m-0
         text-3xl sm:text-xl
-        border-5 border-white
         font-playfair-display`
     )
 
@@ -79,20 +98,18 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         sm:grid
         pl-10 sm:p-5
         sm:absolute
-        sm:top-30
+        sm:top-28
         sm:grid-cols-2
         sm:gap-x-2
         sm:gap-y-2
         sm:min-w-70
-        border-2 border-blue-500
         sm:bg-myblack`
     )
 
     const subMenuItemsClass = (`
         h-full w-full
-        py-2
-        border-2 border-green-500
-        `
+        py-2 sm:px-2
+        sm:text-center`
     )
 
     const iconoContainerClass = (`
@@ -100,7 +117,6 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         h-full
         flex flex-row
         items-center
-        border-2 border-pink-500
         justify-between sm:justify-center`
     )
 
@@ -109,7 +125,6 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         items-center
         justify-center
         h-full
-        border-2 border-purple-500
         px-4`
     )
 
@@ -136,7 +151,13 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         sm:hidden`
     )
 
-    
+    const itemMenuBtnClass = (` 
+        w-full
+        p-2
+        flex
+        items-center 
+        gap-2`
+    )
 
     return ( 
         <nav 
@@ -187,23 +208,29 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                         >
                             <button 
                                 onClick={() => toggleSubMenu(el)} 
-                                className={`
-                                    w-full
-                                    p-2
-                                    flex
-                                    items-center 
-                                    gap-2
-                                    border-2 border-purple-700
-                                    `
-                                }
+                                className={itemMenuBtnClass}
                             >
                                 {el.toUpperCase()}
                                 {openSubMenu === el  //
-                                    ? <HiChevronUp className="border border-red-500"/> 
-                                    : <HiChevronDown className="border border-blue-500"/>
+                                    ? <HiChevronUp /> 
+                                    : <HiChevronDown />
                                 }
                             </button>
-                        
+                            {
+                                renderSubMenuItems(
+                                    el, 
+                                    'ocasiones', 
+                                    occasions
+                                )
+                            }
+                                
+                            {
+                            renderSubMenuItems(
+                                el, 
+                                'categorias', 
+                                categories
+                            )
+                            }
                         
                         </li>
                     ))
@@ -220,16 +247,12 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                                     w-full
                                     p-2
                                     flex
-                                    items-center 
-                                    border-2 border-purple-700
-                                    `
+                                    items-center`
                                 }
                             >
                                 {el.toUpperCase()}
                                 
                             </Link>
-                        
-                        
                         </li>
                     ))
                 }
