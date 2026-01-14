@@ -43,7 +43,6 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     }
 
     const navClass = (`
-        bg-myblack 
         w-full
         h-20 sm:h-25
         flex 
@@ -51,34 +50,35 @@ const NavBar = ({items1, items2, occasions, categories}) => {
         justify-center 
         sticky 
         top-0
-        z-[50]`
+        z-[50]
+        bg-myblack`
     )
 
-    const hamburguerButtonClass = (`
-        sm:hidden 
+    const hamburguerButtonClass = (` 
         text-3xl 
-        text-white`
+        text-white
+        sm:hidden`
     )
 
     const menuClass = (`
-        bg-myblack 
-        text-mygold
         h-full sm:h-auto w-full sm:w-[70%]
-        overflow-auto sm:overflow-visible
         px-10 pt-20 pb-10 sm:p-0
         flex flex-col sm:flex-row
         sm: gap-x-4
         sm:justify-center
         fixed sm:static 
-        top-0`
+        top-0
+        overflow-auto sm:overflow-visible
+        bg-myblack 
+        text-mygold`
     )
 
     const menuItemsClass = (`
-        sm:flex
-        sm:items-center
         mb-10 sm:m-0
         text-3xl sm:text-xl
-        font-playfair-display`
+        font-playfair-display
+        sm:flex
+        sm:items-center`
     )
 
     const menuOpenClass = (`
@@ -95,10 +95,10 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     )
 
     const subMenuClass = (`
-        sm:grid
         pl-10 sm:p-5
         sm:absolute
-        sm:top-28
+        sm:top-20
+        sm:grid
         sm:grid-cols-2
         sm:gap-x-2
         sm:gap-y-2
@@ -121,11 +121,11 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     )
 
     const iconoContainerClass2 = (`
+        h-full
+        px-4
         flex flex-col
         items-center
-        justify-center
-        h-full
-        px-4`
+        justify-center`
     )
 
     const sanJudasClass = (`
@@ -160,23 +160,21 @@ const NavBar = ({items1, items2, occasions, categories}) => {
     )
 
     return ( 
-        <nav 
-            className={navClass}
-        >   
-            <div className={iconoContainerClass}
-            >
-                <div 
-                    className={iconoContainerClass2}
-                >
-                    <h1 className={sanJudasClass}
-                    >
+
+        <nav className={navClass} >
+
+            <div className={iconoContainerClass}>
+
+                <div className={iconoContainerClass2}>
+
+                    <h1 className={sanJudasClass}>
                       SAN JUDAS
                     </h1>
-                    <span 
-                        className={floristeriaClass}
-                    >
+
+                    <span className={floristeriaClass}>
                       FLORISTERIA
                     </span>
+
                 </div>
 
                 <HamburgerButton 
@@ -184,6 +182,7 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                     onClick={toggleMenu}
                 >
                 </HamburgerButton>
+
             </div>
                                     
             <ul 
@@ -196,7 +195,8 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                 }
             >
                 
-                <XButton className={xBbuttonClass}
+                <XButton   
+                    className={xBbuttonClass}
                     onClick={toggleMenu}
                 />
 
