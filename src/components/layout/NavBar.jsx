@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars as HamburgerButton, FaTimes as XButton } from "react-icons/fa";
 import { HiChevronDown, HiChevronUp  } from "react-icons/hi2";
 
-const NavBar = ({items1, items2, occasions, categories}) => {
+const NavBar = ({mainMenuItems, secondaryMenuItems, occasionList, categoryList}) => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [openSubMenu, setOpenSubMenu] = useState(null)
@@ -201,7 +201,7 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                 />
 
                 {
-                    items1.map((el) => (
+                    mainMenuItems.map((el) => (
                         <li 
                             key={el} 
                             className={menuItemsClass}
@@ -219,24 +219,23 @@ const NavBar = ({items1, items2, occasions, categories}) => {
                             {
                                 renderSubMenuItems(
                                     el, 
-                                    'ocasiones', 
-                                    occasions
+                                    'categorias', 
+                                    categoryList
                                 )
                             }
-                                
+                            
                             {
-                            renderSubMenuItems(
-                                el, 
-                                'categorias', 
-                                categories
-                            )
+                                renderSubMenuItems(
+                                    el, 
+                                    'ocasiones', 
+                                    occasionList
+                                )
                             }
-                        
                         </li>
                     ))
                 }
                 {
-                    items2.map((el) => (
+                    secondaryMenuItems.map((el) => (
                         <li 
                             key={el} 
                             className={menuItemsClass}

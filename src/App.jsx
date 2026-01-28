@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 
-import MainLayout from "./components/MainLoyaout";
-import PreviewCategories from "./components/mainLoyaoutComponents/PreviewCategories";
+import MainLayout from "./components/layout/MainLayout";
+
+import MainContent from './components/layout/MainContent'
 
 function App() {
   
@@ -9,7 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route element={<MainLayout/>}>
-          <Route path="/" element={<PreviewCategories/>}></Route>
+          <Route path="/" element={<MainContent/>}></Route>
         </Route>
       </Routes>
     </Router>
