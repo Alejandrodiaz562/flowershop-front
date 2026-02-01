@@ -48,6 +48,8 @@ const MainProducts = () => {
                         /> 
                         
                     ))
+
+                    
                 }
             />
                 <h2>{console.log(myData)}</h2>
