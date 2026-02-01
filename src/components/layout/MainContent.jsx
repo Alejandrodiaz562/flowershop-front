@@ -12,26 +12,20 @@ const MainProducts = () => {
     const { flowerList } = useOutletContext()
     const { condolenceCategory } = useOutletContext()
     
-
-    const [data, setData] = useState([])
-
-    const myCategoryList = 
-        categoryList.join(', ').split(',')
-
-    const myOccasionList = 
-        occasionList.join(', ').split(',')
-
-    const myflowerList = 
-        flowerList.join(', ').split(',')
+    const [myData, setMyData] = useState([])
 
     useEffect(()=> {
         const loadProducts = async () => {
             const response = await getProducts()
-            setData(response.data.products)
+            setMyData(response.data.products)
+            
         }
 
         loadProducts()
     }, [] )
+
+    
+    
 
     return ( 
         <div
@@ -45,9 +39,23 @@ const MainProducts = () => {
             
             <SectionContainer
                 child={
-                    myCategoryList.map(category => (
-                        <CategoryPreview 
-                            product={category} data={data}
+                    categoryList.map((el, index) => (
+                        
+                        <CategoryPreview
+                            key={index}
+                            category={el}
+                            myData={myData}
+                        /> 
+                        
+                    ))
+                }
+            />
+                <h2>{console.log(myData)}</h2>
+            <SectionContainer
+                child={
+                    occasionList.map(occasion => (
+                        <CategoryTile 
+                            product={occasion} data={myData}
                         /> 
                     ))
                 }
@@ -55,19 +63,9 @@ const MainProducts = () => {
 
             <SectionContainer
                 child={
-                    myOccasionList.map(occasion => (
+                    flowerList.map(flower => (
                         <CategoryTile 
-                            product={occasion} data={data}
-                        /> 
-                    ))
-                }
-            />
-
-            <SectionContainer
-                child={
-                    myflowerList.map(flower => (
-                        <CategoryTile 
-                            product={flower} data={data}
+                            product={flower} data={myData}
                         /> 
                     ))
                 }
@@ -76,7 +74,7 @@ const MainProducts = () => {
             <SectionContainer
                 child={
                     <CategoryTile 
-                        product={condolenceCategory} data={data}
+                        product={condolenceCategory} data={myData}
                     /> 
                 }
             />

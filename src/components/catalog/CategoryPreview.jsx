@@ -1,6 +1,15 @@
 
+import  RenderProduct from './RenderProduct'
 
-const CategoryPreview = ({product, data}) => {
+const CategoryPreview = ({category, myData}) => {
+
+    
+    console.log(myData)
+    const filteredData = myData.filter((el)=> el.
+    category === category)
+    
+    console.log('aqui abajo estan mis datos filtrados')
+    console.log(filteredData)
 
     
     return ( 
@@ -15,18 +24,22 @@ const CategoryPreview = ({product, data}) => {
                     pl-3`
                 }
             >
-                <h2>{product.toUpperCase()}</h2>
+                <h2>{category.toUpperCase()}</h2>
             </div>
 
             <div
                 className={`
                     min-h-65 h-auto
-                    border-3 border-pink-600`
+                    border-3 border-white
+                    grid grid-cols-2
+                    gap-4
+                    p-2`
                 }
             >
-                {
-                    data.map(el=>(
-                        <h2>{el.name}</h2>
+                {   
+                
+                    filteredData.map(el => (
+                        <RenderProduct product = {el}></RenderProduct>
                     ))
                 }
             </div>
