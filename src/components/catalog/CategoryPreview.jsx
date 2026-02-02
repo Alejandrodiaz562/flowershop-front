@@ -60,8 +60,8 @@ const CategoryPreview = ({category, myData}) => {
                         >
                             <button
                                 className={`
-                                bg-myblack
-                                text-mygold
+                                bg-mybeishe2
+                                text-white
                                 rounded
                                 p-2`}
                             >
