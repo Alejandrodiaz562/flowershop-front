@@ -24,7 +24,16 @@ const CategoryPreview = ({category, myData}) => {
                     pl-3`
                 }
             >
-                <h2>{category.toUpperCase()}</h2>
+                <h2 
+                    className={`
+                        font-oswald
+                        tracking-widest
+                        text-xl
+                        text-myblack`
+                    }
+                >
+                    {category.toUpperCase()}
+                </h2>
             </div>
 
             <div

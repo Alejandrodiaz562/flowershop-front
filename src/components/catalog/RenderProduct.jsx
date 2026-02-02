@@ -24,18 +24,27 @@ const RenderProduct = ({product}) => {
 
             <div
                 className={`
-                    text-sm
-                    flex items-center
-                    text-center
+                    ${product.name.split(" ").length > 2 && 'text-sm'}
+                    font-oswald
+                    tracking-widest
+                    text-myblack
+                    flex flex-col items-center justify-center
                     h-[30%]`
                 }
             >
-                {product.name.toUpperCase()}
+                {product.name.toUpperCase().split(" ").map((el, i)=> (
+                    <p key={i}>
+                        {el}
+                  </p>
+                ))}
             </div>
             <div
                 className={`
                     text-sm
                     text-center
+                    font-oswald
+                    tracking-widest
+                    text-myblack
                     h-[10%]`
                 }
             >

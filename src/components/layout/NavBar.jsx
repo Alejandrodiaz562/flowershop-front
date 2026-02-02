@@ -76,7 +76,8 @@ const NavBar = ({mainMenuItems, secondaryMenuItems, occasionList, categoryList})
     const menuItemsClass = (`
         mb-10 lg:m-0
         text-3xl lg:text-xl
-        font-playfair-display
+        font-oswald
+        tracking-widest
         lg:flex
         lg:items-center`
     )
