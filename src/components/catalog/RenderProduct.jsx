@@ -1,4 +1,9 @@
 const RenderProduct = ({product}) => {
+
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('es-CO').format(price)
+      }
+
     return ( 
         <div
             className={`
@@ -48,7 +53,7 @@ const RenderProduct = ({product}) => {
                     h-[10%]`
                 }
             >
-                {`COP $${product.price}`}
+                {<p>COP {formatPrice(product.price)}</p>}
             </div>
         </div>
     );
