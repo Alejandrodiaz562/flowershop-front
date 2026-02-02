@@ -14,7 +14,7 @@ const MainLayout = () => {
         = ['amor', 'cumpleaños', 'aniversario', 'nacimiento', 'grados', 'primera comunion', 'matrimonio']
 
     const categoryList  
-        = ['ramilletes', 'ramos', 'cajas', 'anchetas']
+        = ['bouquets', 'arreglos', 'anchetas']
 
     const flowerList  
         = ['girasoles', 'rosas']

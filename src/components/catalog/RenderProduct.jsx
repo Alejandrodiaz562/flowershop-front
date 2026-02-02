@@ -3,22 +3,22 @@ const RenderProduct = ({product}) => {
         <div
             className={`
                 h-60
-                w-full                           border-3 border-black
-                `
+                w-full`
             }
         >
             <div
                 className={`
-                    h-[60%]
-                    border border-white
-                    `
+                    h-[60%]`
                 }
             >
                 <img 
-                src={product.imagesURLS[0]}
-                className={`
-                    w-full h-full object-cover object-[50%_60%]
-                    `} 
+                    src={product.imagesURLS[0]}
+                    className={`
+                        w-full h-full
+                        rounded
+                        object-cover 
+                        object-[50%_60%]`
+                    } 
                 />
             </div>
 
@@ -27,9 +27,8 @@ const RenderProduct = ({product}) => {
                     text-sm
                     flex items-center
                     text-center
-                    border border-white
-                    h-[30%]
-                    `}
+                    h-[30%]`
+                }
             >
                 {product.name.toUpperCase()}
             </div>
@@ -37,9 +36,7 @@ const RenderProduct = ({product}) => {
                 className={`
                     text-sm
                     text-center
-                    border border-white
-                    h-[10%]
-                    `
+                    h-[10%]`
                 }
             >
                 {`COP $${product.price}`}

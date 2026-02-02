@@ -4,7 +4,8 @@ const SectionContainer = ({child}) => {
             className={`
                 min-h-[45%] h-auto
                 mb-3
-                border-4 border-green-800`
+                grid 
+                gap-y-3`
             }
         >
             {child}

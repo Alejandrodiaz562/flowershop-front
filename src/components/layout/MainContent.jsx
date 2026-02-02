@@ -32,8 +32,7 @@ const MainProducts = () => {
             className={`
                 w-full
                 min-h-190 h-auto
-                p-3
-              bg-blue-500`
+                p-3`
             }
         >   
             

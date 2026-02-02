@@ -14,13 +14,13 @@ const CategoryPreview = ({category, myData}) => {
     
     return ( 
         <div className={`
-            min-h-70 h-auto
-            border-3 border-purple-600
-            bg-amber-300`}
+            bg-mybeishe
+            p-2
+            rounded
+            min-h-70 h-auto`}
         >
             <div
                 className={`
-                    border-3 border-red-600
                     pl-3`
                 }
             >
@@ -30,34 +30,43 @@ const CategoryPreview = ({category, myData}) => {
             <div
                 className={`
                     min-h-65 h-auto
-                    border-3 border-white
                     grid grid-cols-2
                     gap-4
                     p-2`
                 }
             >
                 {   
-                
-                    filteredData.slice(0, 4).map(el => (
-                        <RenderProduct product = {el}></RenderProduct>
+                    filteredData
+                        .slice(0, 4)
+                        .map(el => (
+                            <RenderProduct 
+                                product = {el}
+                            />
                     ))
-
-                    
+ 
                 }
                 
             </div>
             
             <div>
                 {
-                    filteredData.length > 4 &&(
+                    filteredData.length > 4 && (
                         <div
                             className={`
-                                border-3 border-blue-500
                                 w-full
-                                text-center
-                                `}
+                                p-1
+                                text-center`
+                            }
                         >
-                            <button>VER TODOS</button>
+                            <button
+                                className={`
+                                bg-myblack
+                                text-mygold
+                                rounded
+                                p-2`}
+                            >
+                                VER TODOS
+                            </button>
                         </div>
                     )
                 }
