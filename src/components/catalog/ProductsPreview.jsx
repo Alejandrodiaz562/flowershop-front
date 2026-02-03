@@ -5,7 +5,7 @@ const ProductsPreview = ({product, myData}) => {
 
     const filteredData = myData.filter(el =>
         el.occasions.includes(product) || el.
-        category === product || el.flowers.includes(product)
+        category === product || el.flowers.includes(product) || el.collection === product
       )
 
     
