@@ -1,15 +1,12 @@
-
 import  RenderProduct from './RenderProduct'
 
-const CategoryPreview = ({category, myData}) => {
 
-    
-    console.log(myData)
-    const filteredData = myData.filter((el)=> el.
-    category === category)
-    
-    console.log('aqui abajo estan mis datos filtrados')
-    console.log(filteredData)
+const ProductsPreview = ({product, myData}) => {
+
+    const filteredData = myData.filter(el =>
+        el.occasions.includes(product) || el.
+        category === product || el.flowers.includes(product)
+      )
 
     
     return ( 
@@ -32,7 +29,7 @@ const CategoryPreview = ({category, myData}) => {
                         text-myblack`
                     }
                 >
-                    {category.toUpperCase()}
+                    {product.toUpperCase()}
                 </h2>
             </div>
 
@@ -52,8 +49,11 @@ const CategoryPreview = ({category, myData}) => {
                                 product = {el}
                             />
                     ))
- 
+
+                    
                 }
+
+               
                 
             </div>
             
@@ -71,6 +71,8 @@ const CategoryPreview = ({category, myData}) => {
                                 className={`
                                 bg-mybeishe2
                                 text-white
+                                font-oswald
+                                tracking-widest
                                 rounded
                                 p-2`}
                             >
@@ -84,4 +86,4 @@ const CategoryPreview = ({category, myData}) => {
     );
 }
  
-export default CategoryPreview;
+export default ProductsPreview;

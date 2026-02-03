@@ -3,7 +3,7 @@ const SectionContainer = ({child}) => {
         <div
             className={`
                 min-h-[45%] h-auto
-                mb-3
+                mb-10
                 grid 
                 gap-y-3`
             }

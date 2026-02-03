@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom'
-import CategoryPreview from '../catalog/CategoryPreview'
-import CategoryTile from '../catalog/CategoryTile ';
-import SectionContainer from '../ui/SectionContainer';
+import ProductsPreview from '../catalog/ProductsPreview';
+import SectionContainer from '../ui/SectionContainer'
 import { getProducts } from "../../api/products.api";
 
 const MainProducts = () => {
@@ -40,9 +39,9 @@ const MainProducts = () => {
                 child={
                     categoryList.map((el, index) => (
                         
-                        <CategoryPreview
+                        <ProductsPreview
                             key={index}
-                            category={el}
+                            product={el}
                             myData={myData}
                         /> 
                         
@@ -51,12 +50,14 @@ const MainProducts = () => {
                     
                 }
             />
-                <h2>{console.log(myData)}</h2>
+                
             <SectionContainer
                 child={
-                    occasionList.map(occasion => (
-                        <CategoryTile 
-                            product={occasion} data={myData}
+                    occasionList.map((occasion, index) => (
+                        <ProductsPreview
+                            key={index}
+                            product={occasion}
+                            myData={myData}
                         /> 
                     ))
                 }
@@ -64,9 +65,11 @@ const MainProducts = () => {
 
             <SectionContainer
                 child={
-                    flowerList.map(flower => (
-                        <CategoryTile 
-                            product={flower} data={myData}
+                    flowerList.map((flower, index) => (
+                        <ProductsPreview 
+                            key={index}
+                            product={flower} 
+                            myData={myData}
                         /> 
                     ))
                 }
@@ -74,8 +77,10 @@ const MainProducts = () => {
 
             <SectionContainer
                 child={
-                    <CategoryTile 
-                        product={condolenceCategory} data={myData}
+                    <ProductsPreview
+                    
+                    product={condolenceCategory} 
+                    myData={myData}
                     /> 
                 }
             />
