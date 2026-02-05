@@ -45,7 +45,8 @@ const ProductsPreview = ({product, data}) => {
                 }
             >
                 {   
-                    filteredData
+                    filteredData.length >= 1 ? (
+                        filteredData
                         .slice(0, 4)
                         .map((el, index) => (
                             <RenderProduct
@@ -53,6 +54,18 @@ const ProductsPreview = ({product, data}) => {
                                 product={el}
                             />
                     ))
+                    ) : (
+                        <p
+                            className={` 
+                                absolute
+                                text-center
+                                mt-10
+                                w-[85%]`
+                            }
+                        >EN EL MOMENTO NO TENEMOS PRODUCTOS PARA MOSTRAR</p>
+                    )
+
+                    
                 }
             </div>
             

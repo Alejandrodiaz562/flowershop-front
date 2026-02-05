@@ -57,6 +57,15 @@ const MainProducts = () => {
 
             <SectionContainer
                 child={
+                    <ProductsPreview
+                        product={'anchetas'}
+                        data={myData}
+                    />
+                }
+            />
+
+            <SectionContainer
+                child={
                     flowersList.map((flower, index) => (
                         <ProductsPreview 
                             key={index}

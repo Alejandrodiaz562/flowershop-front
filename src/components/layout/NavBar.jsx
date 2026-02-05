@@ -45,7 +45,9 @@ const NavBar = ({menuItems, mainMenuItems, secondaryMenuItems, occasionsList, ca
                                 key={item}
                                 className={subMenuItemsClass}
                             >
-                                <Link to={`/${menuItem}/${item}`}>
+                                <Link 
+                                    to={`/${menuItem}/${item}`}
+                                >
                                     {item.toUpperCase()}
                                 </Link>
                             </li>
