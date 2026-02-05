@@ -1,20 +1,23 @@
 import  RenderProduct from './RenderProduct'
 
+const ProductsPreview = ({product, data}) => {
 
-const ProductsPreview = ({product, myData}) => {
+    const filteredData = 
+        data.filter(el =>
+            el.occasions.includes(product) || 
+            el.category === product || 
+            el.flowers.includes(product) || 
+            el.collection === product
+        )
 
-    const filteredData = myData.filter(el =>
-        el.occasions.includes(product) || el.
-        category === product || el.flowers.includes(product) || el.collection === product
-      )
-
-    
     return ( 
-        <div className={`
+        <div 
+            className={`
             bg-mybeishe
-            p-2
-            rounded
-            min-h-70 h-auto`}
+              p-2
+              rounded
+              min-h-70 h-auto`
+            }
         >
             <div
                 className={`
@@ -44,17 +47,13 @@ const ProductsPreview = ({product, myData}) => {
                 {   
                     filteredData
                         .slice(0, 4)
-                        .map(el => (
-                            <RenderProduct 
-                                product = {el}
+                        .map((el, index) => (
+                            <RenderProduct
+                                key={index}
+                                product={el}
                             />
                     ))
-
-                    
                 }
-
-               
-                
             </div>
             
             <div>
@@ -69,12 +68,13 @@ const ProductsPreview = ({product, myData}) => {
                         >
                             <button
                                 className={`
-                                bg-mybeishe2
-                                text-white
-                                font-oswald
-                                tracking-widest
-                                rounded
-                                p-2`}
+                                    bg-mybeishe2
+                                    text-white
+                                    font-oswald
+                                    tracking-widest
+                                    rounded
+                                    p-2`
+                                }
                             >
                                 VER TODOS
                             </button>

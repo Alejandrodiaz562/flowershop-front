@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars as HamburgerButton, FaTimes as XButton } from "react-icons/fa";
 import { HiChevronDown, HiChevronUp  } from "react-icons/hi2";
 
-const NavBar = ({mainMenuItems, secondaryMenuItems, occasionList, categoryList}) => {
+const NavBar = ({menuItems, mainMenuItems, secondaryMenuItems, occasionsList, categoriesList, flowersList}) => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [openSubMenu, setOpenSubMenu] = useState(null)
@@ -16,30 +16,41 @@ const NavBar = ({mainMenuItems, secondaryMenuItems, occasionList, categoryList})
     // SIENDO NULL, SINO SI DETECTA UN NUEVO ITEM DIFERENTE AL ACTUAL 
     // PASA A VALER ESE NUEVO ITEM
     const toggleSubMenu =(menuName) => {
-        setOpenSubMenu(prev => prev === menuName ? null : menuName  ) 
+        setOpenSubMenu(prev => 
+            prev === menuName ? null : menuName  
+        ) 
     }
 
-    const renderSubMenuItems = (menuItem, matchLabel, subMenuItems) => {
-        if (menuItem === matchLabel) {
-            return (
-                <ul
-                    className={`
-                        ${openSubMenu === matchLabel ? subMenuClass : 'hidden'}
-                    `}
-                >
-                    {subMenuItems.map((item)=> (
-                        <li
-                            key={item}
-                            className={subMenuItemsClass}
-                        >
-                            <Link to={`/${menuItem}/${item}`}>
-                                {item.toUpperCase()}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            )
-        }
+    const renderSubMenuItems = (menuItem) => {
+        let list = []
+
+        if (menuItem === 'categorias'){
+                list = categoriesList
+            } else if(menuItem === 'ocasiones'){
+                list = occasionsList
+            } else if (menuItem === 'flores') {
+                list = flowersList
+            } else return null
+
+            return <ul
+                        className={`
+                            ${openSubMenu === menuItem 
+                                ? subMenuClass 
+                                : 'hidden'
+                            }`
+                        }
+                    >
+                        {list.map((item)=> (
+                            <li
+                                key={item}
+                                className={subMenuItemsClass}
+                            >
+                                <Link to={`/${menuItem}/${item}`}>
+                                    {item.toUpperCase()}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
     }
 
     const navClass = (`
@@ -201,60 +212,49 @@ const NavBar = ({mainMenuItems, secondaryMenuItems, occasionList, categoryList})
                     onClick={toggleMenu}
                 />
 
-                {
-                    mainMenuItems.map((el) => (
-                        <li 
-                            key={el} 
-                            className={menuItemsClass}
-                        >
-                            <button 
-                                onClick={() => toggleSubMenu(el)} 
-                                className={itemMenuBtnClass}
-                            >
-                                {el.toUpperCase()}
-                                {openSubMenu === el  //
-                                    ? <HiChevronUp /> 
-                                    : <HiChevronDown />
-                                }
-                            </button>
-                            {
-                                renderSubMenuItems(
-                                    el, 
-                                    'categorias', 
-                                    categoryList
-                                )
-                            }
-                            
-                            {
-                                renderSubMenuItems(
-                                    el, 
-                                    'ocasiones', 
-                                    occasionList
-                                )
-                            }
-                        </li>
-                    ))
-                }
-                {
-                    secondaryMenuItems.map((el) => (
-                        <li 
-                            key={el} 
-                            className={menuItemsClass}
-                        >
-                            <Link 
-                                to={`/${el}`}
-                                className={`
-                                    w-full
-                                    p-2
-                                    flex
-                                    items-center`
-                                }
-                            >
-                                {el.toUpperCase()}
-                                
-                            </Link>
-                        </li>
-                    ))
+                {   
+                    menuItems.map((el, index)=> {
+                        if(mainMenuItems.includes(el)){
+                            return <li key={index} 
+                                        className={menuItemsClass}
+                                    >
+                                        <button 
+                                            onClick={() => toggleSubMenu(el)} 
+                                            className={itemMenuBtnClass}
+                                        >
+                                            {el.toUpperCase()}
+                                            {openSubMenu === el  
+                                                ? <HiChevronUp /> 
+                                                : <HiChevronDown />
+                                            }
+                                        </button>
+                                        
+                                        {
+                                            renderSubMenuItems(el)
+                                        }
+                                    </li>
+                        }
+
+                        if(secondaryMenuItems.includes(el)){
+                            return <li key={el} 
+                                        className={menuItemsClass}
+                                    >
+                                        <Link 
+                                            to={`/${el}`}
+                                            className={`
+                                                w-full
+                                                p-2
+                                                flex
+                                                items-center`
+                                            }
+                                        >
+                                            {el.toUpperCase()}
+
+                                        </Link>
+                                    </li>
+                        }
+                    })
+
                 }
             </ul>
         </nav>

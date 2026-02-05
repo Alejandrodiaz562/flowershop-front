@@ -6,9 +6,9 @@ import { getProducts } from "../../api/products.api";
 
 const MainProducts = () => {
 
-    const { categoryList } = useOutletContext()
-    const { occasionList } = useOutletContext()
-    const { flowerList } = useOutletContext()
+    const { categoriesList } = useOutletContext()
+    const { occasionsList } = useOutletContext()
+    const { flowersList } = useOutletContext()
     const { condolenceCategory } = useOutletContext()
     
     const [myData, setMyData] = useState([])
@@ -17,14 +17,10 @@ const MainProducts = () => {
         const loadProducts = async () => {
             const response = await getProducts()
             setMyData(response.data.products)
-            
         }
 
         loadProducts()
     }, [] )
-
-    
-    
 
     return ( 
         <div
@@ -37,27 +33,23 @@ const MainProducts = () => {
             
             <SectionContainer
                 child={
-                    categoryList.map((el, index) => (
-                        
+                    categoriesList.map((category, index) => (
                         <ProductsPreview
                             key={index}
-                            product={el}
-                            myData={myData}
+                            product={category}
+                            data={myData}
                         /> 
-                        
-                    ))
-
-                    
+                    )) 
                 }
             />
                 
             <SectionContainer
                 child={
-                    occasionList.map((occasion, index) => (
+                    occasionsList.map((occasion, index) => (
                         <ProductsPreview
                             key={index}
                             product={occasion}
-                            myData={myData}
+                            data={myData}
                         /> 
                     ))
                 }
@@ -65,11 +57,11 @@ const MainProducts = () => {
 
             <SectionContainer
                 child={
-                    flowerList.map((flower, index) => (
+                    flowersList.map((flower, index) => (
                         <ProductsPreview 
                             key={index}
                             product={flower} 
-                            myData={myData}
+                            data={myData}
                         /> 
                     ))
                 }
@@ -78,9 +70,8 @@ const MainProducts = () => {
             <SectionContainer
                 child={
                     <ProductsPreview
-                    
-                    product={condolenceCategory} 
-                    myData={myData}
+                        product={condolenceCategory} 
+                        data={myData}
                     /> 
                 }
             />

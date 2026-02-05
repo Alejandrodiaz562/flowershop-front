@@ -2,7 +2,7 @@ const RenderProduct = ({product}) => {
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('es-CO').format(price)
-      }
+    }
 
     return ( 
         <div
@@ -34,7 +34,6 @@ const RenderProduct = ({product}) => {
                     text-myblack
                     flex items-center justify-center
                     text-center
-                    
                     h-[30%]`
                 }
             >

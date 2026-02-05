@@ -4,35 +4,41 @@ import Footer from './Footer'
 
 const MainLayout = () => {
 
+    const menuItems = ['categorias', 'ocasiones', 'anchetas', 'flores', 'condolencias']
+
     const mainMenuItems 
-        = ['categorias', 'ocasiones']
+        = ['categorias', 'ocasiones', 'flores']
 
     const secondaryMenuItems  
-        = ['rosas', 'girasoles', 'condolencias']
+        = ['anchetas', 'condolencias']
 
-    const occasionList  
+    const occasionsList  
         = ['amor', 'cumpleaños', 'aniversario', 'nacimiento', 'grados', 'primera comunion', 'matrimonio']
 
-    const categoryList  
-        = ['bouquets', 'arreglos', 'anchetas']
+    const categoriesList  
+        = ['bouquets', 'arreglos']
 
-    const flowerList  
-        = ['girasoles', 'rosas']
+    const flowersList  
+        = ['girasoles', 'rosas', 'lirios', 'gerberas', 'claveles', 'orquideas']
 
     const condolenceCategory  = 'condolencias'
   
     return ( 
         <div>
-            <NavBar 
+            <NavBar
+                menuItems={menuItems}
                 mainMenuItems={mainMenuItems} 
-                secondaryMenuItems={secondaryMenuItems} occasionList={occasionList} 
-                categoryList={categoryList}>
+                secondaryMenuItems={secondaryMenuItems} 
+                occasionsList={occasionsList} 
+                categoriesList={categoriesList}
+                flowersList={flowersList}
+            >
             </NavBar>
             <div>
                 <Outlet 
-                context={{categoryList, 
-                        occasionList, 
-                        flowerList, 
+                    context={{categoriesList, 
+                        occasionsList, 
+                        flowersList, 
                         condolenceCategory
                     }} 
                 />
