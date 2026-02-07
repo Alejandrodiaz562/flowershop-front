@@ -15,7 +15,6 @@ const ProductsPreview = ({path, product, data}) => {
         <div 
             className={`
                 h-auto lg:h-[82vh]
-                border border-black
                 lg:w-[80%] 
                 bg-mybeishe
                 p-2
