@@ -9,7 +9,6 @@ const MainProducts = () => {
     const { categoriesList } = useOutletContext()
     const { occasionsList } = useOutletContext()
     const { flowersList } = useOutletContext()
-    const { condolenceCategory } = useOutletContext()
     
     const [myData, setMyData] = useState([])
 
@@ -33,10 +32,11 @@ const MainProducts = () => {
             
             <SectionContainer
                 child={
-                    categoriesList.map((category, index) => (
+                    categoriesList.map((slug, index) => (
                         <ProductsPreview
                             key={index}
-                            product={category}
+                            path={`/categorias/${slug}`}
+                            product={slug}
                             data={myData}
                         /> 
                     )) 
@@ -45,10 +45,11 @@ const MainProducts = () => {
                 
             <SectionContainer
                 child={
-                    occasionsList.map((occasion, index) => (
+                    occasionsList.map((slug, index) => (
                         <ProductsPreview
                             key={index}
-                            product={occasion}
+                            path={`/ocasiones/${slug}`}
+                            product={slug}
                             data={myData}
                         /> 
                     ))
@@ -58,6 +59,7 @@ const MainProducts = () => {
             <SectionContainer
                 child={
                     <ProductsPreview
+                        path={`/anchetas`}
                         product={'anchetas'}
                         data={myData}
                     />
@@ -66,10 +68,11 @@ const MainProducts = () => {
 
             <SectionContainer
                 child={
-                    flowersList.map((flower, index) => (
+                    flowersList.map((slug, index) => (
                         <ProductsPreview 
                             key={index}
-                            product={flower} 
+                            path={`/flores/${slug}`}
+                            product={slug} 
                             data={myData}
                         /> 
                     ))
@@ -79,7 +82,8 @@ const MainProducts = () => {
             <SectionContainer
                 child={
                     <ProductsPreview
-                        product={condolenceCategory} 
+                        path={`/condolencias`}
+                        product={'condolencias'} 
                         data={myData}
                     /> 
                 }

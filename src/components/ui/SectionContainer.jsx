@@ -3,9 +3,10 @@ const SectionContainer = ({child}) => {
         <div
             className={`
                 min-h-[45%] h-auto
-                mb-10
+                lg:flex lg:flex-col lg:items-center
+                mb-15
                 grid 
-                gap-y-3`
+                gap-y-5`
             }
         >
             {child}

@@ -1,6 +1,7 @@
 import  RenderProduct from './RenderProduct'
+import { Link } from 'react-router-dom';
 
-const ProductsPreview = ({product, data}) => {
+const ProductsPreview = ({path, product, data}) => {
 
     const filteredData = 
         data.filter(el =>
@@ -13,14 +14,18 @@ const ProductsPreview = ({product, data}) => {
     return ( 
         <div 
             className={`
-            bg-mybeishe
-              p-2
-              rounded
-              min-h-70 h-auto`
+                h-auto lg:h-[80vh]
+                lg:w-[80%] 
+                bg-mybeishe
+                p-2
+                rounded
+                lg:flex lg:flex-col lg:items-center`
             }
         >
             <div
                 className={`
+                    lg:h-[10%]
+                    lg:p-0
                     pl-3`
                 }
             >
@@ -28,7 +33,7 @@ const ProductsPreview = ({product, data}) => {
                     className={`
                         font-oswald
                         tracking-widest
-                        text-xl
+                        text-xl lg:text-4xl
                         text-myblack`
                     }
                 >
@@ -38,10 +43,12 @@ const ProductsPreview = ({product, data}) => {
 
             <div
                 className={`
-                    min-h-65 h-auto
+                    h-150 lg:h-full
                     grid grid-cols-2
                     gap-4
-                    p-2`
+                    p-2
+                    lg:grid-cols-4
+                    lg:w-[95%]`
                 }
             >
                 {   
@@ -75,6 +82,7 @@ const ProductsPreview = ({product, data}) => {
                         <div
                             className={`
                                 w-full
+                                lg:h-full   
                                 p-1
                                 text-center`
                             }
@@ -89,7 +97,11 @@ const ProductsPreview = ({product, data}) => {
                                     p-2`
                                 }
                             >
-                                VER TODOS
+                                <Link
+                                    to={path}
+                                >
+                                    VER TODOS
+                                </Link>
                             </button>
                         </div>
                     )

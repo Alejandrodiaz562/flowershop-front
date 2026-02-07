@@ -7,13 +7,15 @@ const RenderProduct = ({product}) => {
     return ( 
         <div
             className={`
-                h-60
+                h-70 lg:h-full lg:w-full
                 w-full`
             }
         >
             <div
                 className={`
-                    h-[60%]`
+                    aspect-square
+                    h-[60%] lg:h-[70%]
+                    w-full`
                 }
             >
                 <img 
@@ -22,31 +24,33 @@ const RenderProduct = ({product}) => {
                         w-full h-full
                         rounded
                         object-cover 
-                        object-[50%_60%]`
+                        object-[50%_50%]`
                     } 
                 />
             </div>
 
             <div
                 className={`
+                    h-[30%] lg:h-[20%]
                     font-oswald
                     tracking-widest
+                    px-10
+                    lg:text-xl
                     text-myblack
                     flex items-center justify-center
-                    text-center
-                    h-[30%]`
+                    text-center`
                 }
             >
                 {product.name.toUpperCase()}
             </div>
             <div
                 className={`
-                    text-sm
+                    h-[10%]
+                    lg:text-xl
                     text-center
                     font-oswald
                     tracking-widest
-                    text-myblack
-                    h-[10%]`
+                    text-myblack`
                 }
             >
                 {<p>COP {formatPrice(product.price)}</p>}

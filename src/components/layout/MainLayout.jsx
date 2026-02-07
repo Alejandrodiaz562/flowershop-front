@@ -20,8 +20,6 @@ const MainLayout = () => {
 
     const flowersList  
         = ['girasoles', 'rosas', 'lirios', 'gerberas', 'claveles', 'orquideas']
-
-    const condolenceCategory  = 'condolencias'
   
     return ( 
         <div>
@@ -38,8 +36,7 @@ const MainLayout = () => {
                 <Outlet 
                     context={{categoriesList, 
                         occasionsList, 
-                        flowersList, 
-                        condolenceCategory
+                        flowersList
                     }} 
                 />
             </div>
