@@ -57,7 +57,7 @@ const NavBar = ({menuItems, mainMenuItems, secondaryMenuItems, occasionsList, ca
 
     const navClass = (`
         w-full
-        h-20 lg:h-25
+        h-20 
         flex 
         items-center
         justify-center 

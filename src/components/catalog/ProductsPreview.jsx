@@ -14,7 +14,8 @@ const ProductsPreview = ({path, product, data}) => {
     return ( 
         <div 
             className={`
-                h-auto lg:h-[80vh]
+                h-auto lg:h-[82vh]
+                border border-black
                 lg:w-[80%] 
                 bg-mybeishe
                 p-2
@@ -34,6 +35,7 @@ const ProductsPreview = ({path, product, data}) => {
                         font-oswald
                         tracking-widest
                         text-xl lg:text-4xl
+                        lg:mb-2
                         text-myblack`
                     }
                 >
