@@ -110,6 +110,7 @@ const NavBar = ({menuItems, mainMenuItems, secondaryMenuItems, occasionsList, ca
 
     const subMenuClass = (`
         pl-10 lg:p-5
+        lg:rounded 
         lg:absolute
         lg:top-20
         lg:grid
@@ -122,6 +123,7 @@ const NavBar = ({menuItems, mainMenuItems, secondaryMenuItems, occasionsList, ca
 
     const subMenuItemsClass = (`
         h-full w-full
+        
         py-2 lg:px-2
         lg:text-center`
     )
