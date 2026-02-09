@@ -24,9 +24,17 @@ function App() {
             element={<ShowAllProducts 
             type="ocasiones" />} />
           <Route 
+            path="/anchetas" 
+            element={<ShowAllProducts 
+            type="anchetas" />} />
+          <Route 
             path="/flores/:slug" 
             element={<ShowAllProducts 
             type="flores" />} />
+          <Route 
+            path="/condolencias" 
+            element={<ShowAllProducts 
+            type="condolencias" />} />
             
         </Route>
       </Routes>

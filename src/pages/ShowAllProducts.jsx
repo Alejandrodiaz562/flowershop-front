@@ -9,13 +9,17 @@ const ShowAllProducts = ({type}) => {
 
     let filteredData = []
 
+    console.log(products)
+
     if (type === 'categorias') {
         filteredData = products.filter(el => el.category === slug)
     } else if (type === 'ocasiones') {
-        filteredData = products.filter(el => el.ocassions === slug)
-    } else if (type === 'flores') {
-        filteredData = products.filter(el => el.flowers === slug)
-    }
+        filteredData = products.filter(el => el.occasions.includes(slug))
+    } else if (type === 'anchetas') {
+        filteredData = products.filter(el => el.category === 'anchetas')
+    } else if (type === 'condolencias') {
+        filteredData = products.filter(el => el.collection === 'condolencias')
+    } 
 
     return ( 
         <div className={`
